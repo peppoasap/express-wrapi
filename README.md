@@ -1,6 +1,8 @@
 # Wrapi
 Wrap external API to internal API with Express.
 
+WORK IN PROGRESS: just GET Method available
+
 ## Usage
 ```javascript
 
@@ -37,13 +39,13 @@ const server = app.listen(8080, () => {
   "api": [
     {
       "id": 1,
-      "method": 0,
+      "method": 0, //THIS IS A GET, WORK IN PROGRESS
       "srcRoute": "/api/users",
       "destRoute": "/users"
     },
     {
       "id": 2,
-      "method": 0,
+      "method": 0, //THIS IS A GET, WORK IN PROGRESS
       "srcRoute": "/api/users/:id",
       "destRoute": "/user/:id",
       "params": {}
