@@ -1,5 +1,5 @@
 # Wrapi
-Wrap external API to internal API with Express.
+Wrap external API to internal API with Express and Axios.
 
 WORK IN PROGRESS: just GET Method available
 
@@ -53,3 +53,9 @@ const server = app.listen(8080, () => {
   ]
 }
 ```
+
+### Result Example
+- BASE_URL/api/users will be reachable going to localhost:PORT/random/users (random is the namespace, can be removed)
+- BASE_URL/api/users/ID will be reachable going to localhost:PORT/random/user/ID
+
+
