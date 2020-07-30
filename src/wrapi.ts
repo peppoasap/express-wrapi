@@ -13,9 +13,18 @@ export class Wrapi {
 
   add(wrapiConfig: IWrapiConfig) {
     wrapiConfig.api.forEach((api) => {
-      switch (api.method) {
-        case HTTPMethod.GET:
+      switch (api.method.toLowerCase()) {
+        case "get":
           this.generateGet(wrapiConfig.base_url, api);
+          break;
+        case "post":
+          this.generatePost(wrapiConfig.base_url, api);
+          break;
+        case "put":
+          this.generatePut(wrapiConfig.base_url, api);
+          break;
+        case "delete":
+          this.generateDelete(wrapiConfig.base_url, api);
           break;
       }
     });
@@ -29,6 +38,46 @@ export class Wrapi {
 
       Axios.get(extEndpoint)
         .then((result) => res.send(result.data))
+        .catch((err) => res.send(err));
+    });
+  }
+
+  generatePost(baseUrl: string, wrap: IWrapObject) {
+    this.router.post(wrap.destRoute, (req, res) => {
+      let extEndpoint = baseUrl.concat(
+        this.paramsInjector(wrap.srcRoute, req.params)
+      );
+
+      let data = req.body;
+
+      Axios.post(extEndpoint, data)
+        .then((result) => res.send(result.data))
+        .catch((err) => res.send(err));
+    });
+  }
+
+  generatePut(baseUrl: string, wrap: IWrapObject) {
+    this.router.put(wrap.destRoute, (req, res) => {
+      let extEndpoint = baseUrl.concat(
+        this.paramsInjector(wrap.srcRoute, req.params)
+      );
+
+      let data = req.body;
+
+      Axios.put(extEndpoint, data)
+        .then((result) => res.send(result.data))
+        .catch((err) => res.send(err));
+    });
+  }
+
+  generateDelete(baseUrl: string, wrap: IWrapObject) {
+    this.router.delete(wrap.destRoute, (req, res) => {
+      let extEndpoint = baseUrl.concat(
+        this.paramsInjector(wrap.srcRoute, req.params)
+      );
+
+      Axios.delete(extEndpoint)
+        .then((result) => res.send(result))
         .catch((err) => res.send(err));
     });
   }

@@ -1,1 +1,3 @@
-export { Wrapi } from "./wrapi";
+import { Wrapi } from "./wrapi";
+
+export default () => new Wrapi();
