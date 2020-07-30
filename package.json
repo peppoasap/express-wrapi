@@ -1,7 +1,7 @@
 {
-  "name": "wrapi",
+  "name": "express-wrapi",
   "version": "1.0.0",
-  "description": "Wrap your external API to internal API",
+  "description": "Wrap your external API to internal API with Express and Axios.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -16,6 +16,10 @@
     "node",
     "wrapper"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peppoasap/wrapi.git"
+  },
   "author": "peppoasap",
   "license": "ISC",
   "dependencies": {

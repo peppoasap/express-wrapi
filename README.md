@@ -1,15 +1,22 @@
 # Wrapi
+
 Wrap external API to internal API with Express and Axios.
 
 WORK IN PROGRESS: just basic method available
 
-## Usage
-```javascript
+## Installation
 
+```javascript
+npm i express-wrapi
+```
+
+### Usage
+
+```javascript
 var express = require("express");
 
 //Import wrapi
-var wrapi = require("wrapi");
+var wrapi = require("express-wrapi");
 
 //Json with routes
 var randomRoutes = require("./random.routes.json");
@@ -28,10 +35,10 @@ app.use(`/${randomRoutes.namespace}`, wrapi_random.router);
 const server = app.listen(8080, () => {
   console.log("listening on port 8080");
 });
-
 ```
 
-## Routes JSON Example
+### Routes JSON Example
+
 ```javascript
 {
   "namespace": "random",
@@ -73,7 +80,6 @@ const server = app.listen(8080, () => {
 ```
 
 ### Result Example
+
 - BASE_URL/api/users will be reachable going to localhost:PORT/random/users (random is the namespace, can be removed)
 - BASE_URL/api/users/ID will be reachable going to localhost:PORT/random/user/ID
-
-
