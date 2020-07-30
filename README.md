@@ -1,7 +1,7 @@
 # Wrapi
 Wrap external API to internal API with Express and Axios.
 
-WORK IN PROGRESS: just GET Method available
+WORK IN PROGRESS: just basic method available
 
 ## Usage
 ```javascript
