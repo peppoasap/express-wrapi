@@ -17,7 +17,7 @@ var randomRoutes = require("./random.routes.json");
 const app = express();
 
 //Create a WRAPI
-const wrapi_random = new wrapi.Wrapi();
+const wrapi_random = new wrapi.default();
 
 //Add the routes to the WRAPI
 wrapi_random.add(randomRoutes);
@@ -39,16 +39,34 @@ const server = app.listen(8080, () => {
   "api": [
     {
       "id": 1,
-      "method": 0, //THIS IS A GET, WORK IN PROGRESS
+      "method": "get",
       "srcRoute": "/api/users",
       "destRoute": "/users"
     },
     {
       "id": 2,
-      "method": 0, //THIS IS A GET, WORK IN PROGRESS
+      "method": "get",
       "srcRoute": "/api/users/:id",
       "destRoute": "/user/:id",
       "params": {}
+    },
+    {
+      "id": 3,
+      "method": "post",
+      "srcRoute": "/api/users",
+      "destRoute": "/users"
+    },
+    {
+      "id": 4,
+      "method": "put",
+      "srcRoute": "/api/users/:id",
+      "destRoute": "/users/:id"
+    },
+    {
+      "id": 5,
+      "method": "delete",
+      "srcRoute": "/api/users/:id",
+      "destRoute": "/users/:id"
     }
   ]
 }
